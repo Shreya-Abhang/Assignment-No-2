@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<univer>
+    <university>
+        <uname>Pune University</uname>
+        <city>Pune</city>
+        <rank>2</rank>
+    </university>
+    <university>
+        <uname>Kolhapur University</uname>
+        <city>Kolhapur</city>
+        <rank>4</rank>
+    </university>
+</univer>
+
+<?php
+$xmlFile = "univer.xml";
+
+if (file_exists($xmlFile)) {
+    $xml = simplexml_load_file($xmlFile);
+    
+    // XPath expression to select all <uname> elements
+    $name = $xml->xpath("//uname");
+
+    echo "<h3>List of University Names:</h3>";
+    foreach ($name as $uname) {
+        echo $uname . "<br>";
+    }
+} else {
+    echo "File not exists!";
+}
+?>
