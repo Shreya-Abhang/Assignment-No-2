@@ -1,0 +1,23 @@
+ItemName {
+    color: red;
+    font-family: 'Copperplate Gothic Light', sans-serif;
+    font-size: 16pt;
+    font-weight: bold;
+    display: block;
+}
+
+ItemPrice {
+    color: yellow;
+    font-family: Arial, sans-serif;
+    font-size: 12pt;
+    font-weight: bold;
+    display: block;
+}
+
+Quantity {
+    color: yellow;
+    font-family: Arial, sans-serif;
+    font-size: 12pt;
+    font-weight: bold;
+    display: block;
+}
