@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Author Name</title>
+</head>
+<body>
+    <h2>Update Author Name</h2>
+    <form name="Fr" action="" method="POST">
+        <table>
+            <tr>
+                <td>Enter ISBN Number:</td>
+                <td><input type="number" name="n"></td>
+            </tr>
+            <tr>
+                <td>Enter New Author Name:</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" name="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+
+<?php
+if (isset($_POST['submit'])) {
+    $isbn = $_POST['n'];
+    $author = $_POST['name'];
+    $updated = false;
+
+    $xmlDoc = new DOMDocument();
+    $xmlDoc->formatOutput = true;
+
+    if (file_exists("lib.xml")) {
+        $xmlDoc->load("lib.xml");
+        $books = $xmlDoc->getElementsByTagName("book");
+
+        foreach ($books as $book) {
+            $isbnNode = $book->getElementsByTagName("ISBN")->item(0);
+            
+            if ($isbnNode && $isbnNode->nodeValue == $isbn) {
+                $authorNode = $book->getElementsByTagName("Author")->item(0);
+                if ($authorNode) {
+                    $authorNode->nodeValue = $author;
+                    $updated = true;
+                }
+            }
+        }
+
+        if ($updated) {
+            $xmlDoc->save("lib.xml");
+            echo "Author Name Updated Successfully!";
+        } else {
+            echo "Book with matching ISBN not found.";
+        }
+    } else {
+        echo "File not found!";
+    }
+}
+?>
+</body>
+</html>
