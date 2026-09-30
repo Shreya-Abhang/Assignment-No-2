@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="item.css"?>
+<ItemInfo>
+    <Item type="vegetables">
+        <ItemName>Beetroot</ItemName>
+        <ItemPrice>40</ItemPrice>
+        <Quantity>250</Quantity>
+    </Item>
+    <Item type="Fruit">
+        <ItemName>Apple</ItemName>
+        <ItemPrice>70</ItemPrice>
+        <Quantity>550</Quantity>
+    </Item>
+    <Item type="Flower">
+        <ItemName>Rose</ItemName>
+        <ItemPrice>60</ItemPrice>
+        <Quantity>60</Quantity>
+    </Item>
+    <Item type="DryFruit">
+        <ItemName>Almond</ItemName>
+        <ItemPrice>100</ItemPrice>
+        <Quantity>200</Quantity>
+    </Item>
+    <Item type="Oil">
+        <ItemName>GroundNut oil</ItemName>
+        <ItemPrice>150</ItemPrice>
+        <Quantity>70</Quantity>
+    </Item>
+</ItemInfo>
