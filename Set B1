@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MovieInfo>
+    <Movie>
+        <MovieNo>1</MovieNo>
+        <MovieTitle>Jumanji</MovieTitle>
+        <ActorName>James</ActorName>
+        <ReleaseYear>2014</ReleaseYear>
+    </Movie>
+    <Movie>
+        <MovieNo>2</MovieNo>
+        <MovieTitle>Anabella</MovieTitle>
+        <ActorName>Miss Ana</ActorName>
+        <ReleaseYear>1997</ReleaseYear>
+    </Movie>
+    <Movie>
+        <MovieNo>3</MovieNo>
+        <MovieTitle>Quiet Place</MovieTitle>
+        <ActorName>Rose</ActorName>
+        <ReleaseYear>2018</ReleaseYear>
+    </Movie>
+    <Movie>
+        <MovieNo>4</MovieNo>
+        <MovieTitle>Conjuring</MovieTitle>
+        <ActorName>Stefan</ActorName>
+        <ReleaseYear>2000</ReleaseYear>
+    </Movie>
+    <Movie>
+        <MovieNo>5</MovieNo>
+        <MovieTitle>Alive</MovieTitle>
+        <ActorName>Sufang</ActorName>
+        <ReleaseYear>2013</ReleaseYear>
+    </Movie>
+</MovieInfo>
+
+<?php
+$dom = new DOMDocument();
+$dom->load("movie.xml");
+
+echo "<h2>Movie Title</h2>";
+$mname = $dom->getElementsByTagName("MovieTitle");
+foreach ($mname as $m) {
+    echo "<b>" . $m->textContent . "</b><br>";
+}
+
+echo "<h2>Actor Name</h2>";
+$aname = $dom->getElementsByTagName("ActorName");
+foreach ($aname as $a) {
+    echo "<b>" . $a->textContent . "</b><br>";
+}
+?>
