@@ -1,0 +1,50 @@
+<?php
+$doc = new DOMDocument("1.0", "UTF-8");
+$doc->formatOutput = true;
+
+// Create Root Element
+$BookInfo = $doc->createElement("BookInfo");
+$doc->appendChild($BookInfo);
+
+// First Book Entry
+$book1 = $doc->createElement("book");
+$BookInfo->appendChild($book1);
+
+$bookno1 = $doc->createElement("bookno", "1");
+$book1->appendChild($bookno1);
+
+$bookname1 = $doc->createElement("bookname", "JAVA");
+$book1->appendChild($bookname1);
+
+$authorname1 = $doc->createElement("authorname", "Balguruswami");
+$book1->appendChild($authorname1);
+
+$price1 = $doc->createElement("price", "250");
+$book1->appendChild($price1);
+
+$year1 = $doc->createElement("year", "2006");
+$book1->appendChild($year1);
+
+// Second Book Entry
+$book2 = $doc->createElement("book");
+$BookInfo->appendChild($book2);
+
+$bookno2 = $doc->createElement("bookno", "2");
+$book2->appendChild($bookno2);
+
+$bookname2 = $doc->createElement("bookname", "C");
+$book2->appendChild($bookname2);
+
+$authorname2 = $doc->createElement("authorname", "Denis Ritchie");
+$book2->appendChild($authorname2);
+
+$price2 = $doc->createElement("price", "500");
+$book2->appendChild($price2);
+
+$year2 = $doc->createElement("year", "1971");
+$book2->appendChild($year2);
+
+// Output XML
+header("Content-Type: text/xml");
+echo $doc->saveXML();
+?>
