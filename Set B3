@@ -1,0 +1,44 @@
+<?php
+$doc = new DOMDocument("1.0", "UTF-8");
+$doc->formatOutput = true;
+
+// Create Root Element
+$library = $doc->createElement("library");
+$doc->appendChild($library);
+
+// Book Entry 1
+$book1 = $doc->createElement("book");
+$library->appendChild($book1);
+
+$title1 = $doc->createElement("Title", "PHP");
+$book1->appendChild($title1);
+
+$author1 = $doc->createElement("Author", "S.Kadam");
+$book1->appendChild($author1);
+
+$isbn1 = $doc->createElement("ISBN", "90");
+$book1->appendChild($isbn1);
+
+$price1 = $doc->createElement("Price", "300");
+$book1->appendChild($price1);
+
+// Book Entry 2
+$book2 = $doc->createElement("book");
+$library->appendChild($book2);
+
+$title2 = $doc->createElement("Title", "C");
+$book2->appendChild($title2);
+
+$author2 = $doc->createElement("Author", "Denis Ritchie");
+$book2->appendChild($author2);
+
+$isbn2 = $doc->createElement("ISBN", "34");
+$book2->appendChild($isbn2);
+
+$price2 = $doc->createElement("Price", "456");
+$book2->appendChild($price2);
+
+// Output XML
+header("Content-Type: text/xml");
+echo $doc->saveXML();
+?>
