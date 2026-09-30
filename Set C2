@@ -1,0 +1,28 @@
+<?php
+$xmlFile = "movie.xml";
+
+if (file_exists($xmlFile)) {
+    $xml = simplexml_load_file($xmlFile);
+    $targetMovie = "Jumanji";
+    $newRatings = "9.8";
+    $updated = false;
+
+    foreach ($xml->Movie as $movieInfo) {
+        if ((string)$movieInfo->MovieTitle === $targetMovie) {
+            $movieInfo->rating = $newRatings;
+            $updated = true;
+            break;
+        }
+    }
+
+    if ($updated) {
+        $xml->asXML($xmlFile); // Save back to file
+        echo "<pre>" . htmlspecialchars($xml->asXML()) . "</pre>";
+        echo "Successfully updated the ratings to '{$newRatings}' of the movie '{$targetMovie}'.";
+    } else {
+        echo "Movie Not Found!";
+    }
+} else {
+    echo "File Not Found!";
+}
+?>
